@@ -11,7 +11,7 @@ function convert_to_standard(a::SparseVector, ub::Real, lb::Real, var_ub::Abstra
         con, b =  _con_lb_convert(a, lb, var_ub, var_lb, var_type, org_to_bin)
         (con == false) ? (return 0, false, false) : (return 1, con, b)
     else
-        (lb != ub) && (println("Warning: there is a constaint that lb and ub is not equal!!!!!!"))
+        #id = 0, 1, 2; 0 imples no info, 1 implies 1 constraint, and 2 implies 2 constriants
         id, con, b =  _con_b_convert(a, ub, lb, var_ub, var_lb, var_type, org_to_bin)
         return id, con, b
     end
@@ -41,7 +41,7 @@ function _con_ub_convert(a::SparseVector, b::Real, var_ub::AbstractVector, var_l
     end
 
     #if no binary, do not have constraint we want
-    (binary_number < 1) ? (return false, false) : (return con, floor(Int64, b - delta))
+    (binary_number < 1) ? (return false, false) : (return con, b - delta)
 
 end
 
@@ -67,9 +67,8 @@ function _con_lb_convert(a::SparseVector, b::Real, var_ub::AbstractVector, var_l
             end 
         end
     end
-    
     #if no binary, do not have constraint we want
-    (binary_number < 1) ? (return false, false) : (return con, floor(Int64, -b + delta))
+    (binary_number < 1) ? (return false, false) : (return con, -b + delta)
 end
 
 function _con_b_convert(a::SparseVector, ub::Real, lb::Real, var_ub::AbstractVector, var_lb::AbstractVector, var_type::AbstractVector, org_to_bin::Dict{Int64,Int64})

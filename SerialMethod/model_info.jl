@@ -1,9 +1,8 @@
 using JuMP
-using HiGHS
+using Gurobi
 using SparseArrays
 
-model = read_from_file("mik-250-20-75-4.mps")
-
+model = read_from_file("parallel_mip/miplib/mipdata/lotsize.mps")
 
 #info for variables and constraints
 #for variabels, collect:
@@ -16,6 +15,7 @@ var_type = zeros(var_num)
 #record all integeral variables (note that, both binary and integer variables are denoted as integeral variables)
 for index in 1:var_num
     (is_integer(variable_by_name(model, string(var_name[index])))) && (var_type[index] = 1)
+    (is_binary(variable_by_name(model, string(var_name[index])))) && (var_type[index] = 2)
 end
 
 #number of constraints
@@ -68,10 +68,10 @@ for index in 1:con_num
         con_type[index] = 1
     end
 end
-
+#=
 #now we rebuild the model:
 #check we get correct info of model
-model_rebuild = Model(HiGHS.Optimizer)
+model_rebuild = Model(Gurobi.Optimizer)
 
 #build variables
 @variable(model_rebuild, var_ub[i] >= x[i in 1:var_num] >= var_lb[i])
@@ -103,11 +103,12 @@ end
 #relax model for check our rebuilding model
 undo();
 
-set_optimizer(model, HiGHS.Optimizer);
+set_optimizer(model, Gurobi.Optimizer);
 #=
 optimize!(model_rebuild)
 optimize!(model)
 
 @show objective_value(model)
 @show objective_value(model_rebuild)
+=#
 =#

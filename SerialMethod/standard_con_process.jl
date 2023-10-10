@@ -1,17 +1,17 @@
 #standard_con_process.jl
 
 function standard_con_process(a::SparseVector, b::Real)
+    #check feasibility
     id = _is_feasible(a, b)
-    if id == 0
-        #0 implies this problem is infeasible
-        return 0, false, false
-    elseif id == 2
-        #-1 imples variables should be fixed to the lower bound (depends on a[i])
-        return -1, false, false
-    else
+    if id == 1
         con, newb, newid = _expand_constraint(a, b)
         #1 imples knapsack constraint, and 2 implies set pack constraint
         (newid == false) ? (return 1, con, newb) : (return 2, con, newb)
+    else
+        #here id might be -1 or 0
+        #0 implies this problem is infeasible
+        #-1 imples variables should be fixed to the lower bound (depends on a[i])
+        return id, false, false
     end
 end
 
@@ -26,10 +26,10 @@ function _is_feasible(a::SparseVector, b::Real)
         #0 implies this problem is infeasible
         return 0
     elseif s < b + 0.0001 && s > b - 0.0001
-        #2 implies all variables in this constraint should be fixed to the lower bound (depends on a[i])
-        return 2
+        #-1 implies all variables in this constraint should be fixed to the lower bound (depends on a[i])
+        return -1
     else
-        #1 implies a normal constraint
+        #1 implies a knapsack constraint
         return 1
     end
 end
@@ -40,7 +40,7 @@ function _expand_constraint(a::SparseVector, b::Real)
     con = spzeros(2*binary_length)
     is_set_pack = true
     for i in findnz(a)[1]
-        c = a[i]
+        local c = a[i]
         if c > 0
             con[i] = c
         else
@@ -48,7 +48,7 @@ function _expand_constraint(a::SparseVector, b::Real)
             b -= c
         end
         if is_set_pack
-            (c != 1 && c != -1) && (is_set_pack = false)
+            (abs(c) != 1) && (is_set_pack = false)
         end
     end
     if is_set_pack
