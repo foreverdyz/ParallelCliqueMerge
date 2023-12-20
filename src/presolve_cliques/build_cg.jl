@@ -180,7 +180,7 @@ function update_cg_distributed(set::Vector{Vector{Int64}}, binary_number::Int64,
     (numthreads == 1) && (return cg_g[1] .| cg_init)
     #start the binary combination
     #L is the number of levels
-    L = ceil(Int64, log2(24))
+    L = ceil(Int64, log2(numthreads))
     K = numthreads
     for _ in 1:L
         local k = ceil(Int64, K / 2)
