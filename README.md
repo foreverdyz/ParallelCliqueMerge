@@ -25,4 +25,4 @@ pkg> add PACKAGE_NAME    # Press ']' to enter the Pkg REPL mode.
 
 ## Tutorial
 
-See README.md (in src)](/src/README.md) for tutorial and examples.
+See [README.md (in src)](/src/README.md) for tutorial and examples.
