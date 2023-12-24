@@ -5,6 +5,8 @@ include("clique_extend.jl")
 include("cliques_dominate.jl")
 include("detect_cliques.jl")
 include("remap_cons.jl")
+include("build_cg_heuristic.jl")
+include("clique_extend_heuristic.jl")
 
 function generate_two_set(org_to_bin, bin_to_org, set_pack, set_pack_new, main_cliques, clique_set, var_ub, var_lb, var_type, numthreads)
     cg = build_cg_distributed(set_pack, length(org_to_bin), numthreads)
