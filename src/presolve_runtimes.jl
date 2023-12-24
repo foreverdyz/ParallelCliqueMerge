@@ -3,10 +3,8 @@
 include("info_prepare/generate_info.jl")
 include("presolve_cliques/generate_two_sets.jl")
 using Random
+using Base.Threads
 
-#=
-Add shuffle to set_pack, set_pack_new, main_cliques, clique_set when using parallel algorithm
-=#
 function clq_merge_runtime(filename::String, numthreads::Int64)
     org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, fix_set, con_matrix, con_ub, con_lb, var_ub, var_lb, var_type, obj_coef, is_min = generate_info(filename)
     println(filename)
