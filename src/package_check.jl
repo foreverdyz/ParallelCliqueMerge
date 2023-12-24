@@ -1,7 +1,7 @@
 #package_check.jl
 
 #list includes all packages required for this project
-list = String["JuMP", "Gurobi", "BangBang", "SparseArrays", "Random"]
+list = String["JuMP", "Gurobi", "BangBang", "SparseArrays", "Random", "ThreadsX"]
 
 #def function to check installations for all packages in list
 function check_packages_installation(list::Vector{String})
