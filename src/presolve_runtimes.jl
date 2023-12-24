@@ -6,7 +6,8 @@ using Random
 using Base.Threads
 begin
     @info "You are using " * string(nthreads()) * " threads."
-    @info "Use \"julia --threads number_threads\" to restart julia and change the number of threads." 
+    @info "Use \"julia --threads number_threads\" to restart julia and change the number of threads."
+    clq_merge_runtime(filename::String, numthreads::Int64)
 end
 
 function clq_merge_runtime(filename::String, numthreads::Int64)
