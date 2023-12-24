@@ -4,29 +4,30 @@ include("info_prepare/generate_info.jl")
 include("presolve_cliques/generate_two_sets.jl")
 using Random
 using Base.Threads
+begin
+    @info "You are using " * string(nthreads()) * " threads."
+    @info "Use \"julia --threads number_threads\" to restart julia and change the number of threads." 
+end
 
 function clq_merge_runtime(filename::String, numthreads::Int64)
     org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, fix_set, con_matrix, con_ub, con_lb, var_ub, var_lb, var_type, obj_coef, is_min = generate_info(filename)
     println(filename)
     println("Serial Method")
     @time _clq_merge_runtime_serial(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb)
-    println("2 Threads")
-    @time _clq_merge_runtime_parallel_new(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, 2)
-    println("4 Threads")
-    @time _clq_merge_runtime_parallel_new(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, 4)
-    println("8 Threads")
-    @time _clq_merge_runtime_parallel_new(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, 8)
-    println("16 Threads")
-    @time _clq_merge_runtime_parallel_new(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, 16)
-    println("32 Threads")
-    @time _clq_merge_runtime_parallel_new(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, 32)
-    println("64 Threads")
-    @time _clq_merge_runtime_parallel_new(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, 64)
+    println(string(nthreads())*"Threads")
+    @time _clq_merge_runtime_parallel(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb, nthreads())
 end
 
 
 function _clq_merge_runtime_serial(org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, var_lb)
     main_cliques, clique_set = detect_cliques(knapsack_set)
+
+    #here we shuffle these set to guarantee both serial and parallel methods are processing same lists (since order may impact the runtime)
+    Random.seed!(1234)
+    shuffle!(set_pack)
+    shuffle!(set_pack_new)
+    shuffle!(main_cliques)
+    shuffle!(clique_set)
 
     cg = build_cg_serial(set_pack, length(org_to_bin))
     cg = update_cg_serial(set_pack_new, length(org_to_bin), cg)
