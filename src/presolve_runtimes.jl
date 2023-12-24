@@ -7,10 +7,9 @@ using Base.Threads
 begin
     @info "You are using " * string(nthreads()) * " threads."
     @info "Use \"julia --threads number_threads\" to restart julia and change the number of threads."
-    clq_merge_runtime(filename::String, numthreads::Int64)
 end
 
-function clq_merge_runtime(filename::String, numthreads::Int64)
+function clq_merge_runtime(filename::String)
     org_to_bin, bin_to_org, set_pack, set_pack_new, knapsack_set, fix_set, con_matrix, con_ub, con_lb, var_ub, var_lb, var_type, obj_coef, is_min = generate_info(filename)
     println(filename)
     println("Serial Method")
