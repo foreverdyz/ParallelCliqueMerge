@@ -34,4 +34,12 @@ Similar to presolve_runtimes.jl
 
 ## rebuild_model.jl
 
-This script will read the mode from the .mps file (by scripts from [info_prepare](/src/info_prepare)), conduct the clique merging method (by scripts from [presolve_cliques](/src/presolve_cliques)), and rebuild the reduced model.
+This script will build the reduced model by JuMP based on information provided by the presolving method.
+
+## reduced_problem_solve.jl
+
+This script will read the mode from the .mps file (by scripts from [info_prepare](/src/info_prepare)), conduct the clique merging method (by scripts from [presolve_cliques](/src/presolve_cliques)), rebuild the reduced model (by [rebuild_model.jl](/src/rebuild_model.jl)), and solve both the original model and the reduced model by Gurobi 10.0.1.
+```julia
+julia> include("reduced_problem_solve.jl")
+julia> reduced_problem_solve("30n20b8.mps", 10)   #"30n20b8.mps" is the file name of the model, and 10 is the number of threads we set for Gurobi.
+```
