@@ -17,7 +17,7 @@ Yon can check whether you have installed these required packages by running [pac
 julia> include("package_check.jl")
 ```
 
-To install a package simply run
+To install a package, simply run
 
 ```julia
 pkg> add PACKAGE_NAME    # Press ']' to enter the Pkg REPL mode.
