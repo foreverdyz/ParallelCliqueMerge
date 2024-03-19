@@ -4,7 +4,7 @@
 
 This folder includes scripts extracting model information, e.g. constraints coefficients, variables' types and bounds, for sequel clique merging.
 
-## Folder clique_merge
+## Folder clq_merge
 
 This folder includes scripts for clique detecting, conflict graph building, clique extending, and domination checking between cliques.
 
