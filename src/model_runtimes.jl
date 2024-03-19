@@ -6,6 +6,13 @@ include("rebuild_model.jl")
 using BangBang
 using Random
 
+"""
+we set: 
+max_tolerance = 0.00001,
+max_length = 3000,
+max_nonzero = 1_000_000, 
+max_domian = 100_000
+"""
 function model_runtimes(filename::String, numthreads::Int64, max_tolerance::Float64, max_length::Int64, max_nonzero::Int64, max_domian::Int64)
     Random.seed!(12)
     con_matrix, con_set, con_coef, 
