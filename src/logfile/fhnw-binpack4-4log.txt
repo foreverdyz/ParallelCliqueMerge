@@ -1,0 +1,56 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 03:51:03 2024
+
+Set parameter LogFile to value "res/logfile/fhnw-binpack4-4log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 866 rows, 520 columns and 2824 nonzeros
+Model fingerprint: 0x3e6317a0
+Variable types: 39 continuous, 481 integer (481 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 4e+02]
+  RHS range        [1e+00, 5e+02]
+Presolve removed 366 rows and 100 columns
+Presolve time: 0.00s
+Presolved: 500 rows, 420 columns, 1672 nonzeros
+Variable types: 39 continuous, 381 integer (381 binary)
+
+Root relaxation: objective 0.000000e+00, 393 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0    2          -    0.00000      -     -    0s
+     0     0    0.00000    0    6          -    0.00000      -     -    0s
+     0     0    0.00000    0    2          -    0.00000      -     -    0s
+     0     0    0.00000    0    6          -    0.00000      -     -    0s
+     0     0    0.00000    0    2          -    0.00000      -     -    0s
+     0     0    0.00000    0    2          -    0.00000      -     -    0s
+     0     2    0.00000    0    2          -    0.00000      -     -    0s
+ 47875   280    0.00000   24   18          -    0.00000      -   8.3    5s
+ 111854    55 infeasible   30               -    0.00000      -   8.8   10s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 6
+  Implied bound: 14
+  MIR: 1
+  Flow cover: 23
+  RLT: 2
+  Relax-and-lift: 2
+  PSD: 3
+
+Explored 113610 nodes (1018790 simplex iterations) in 10.13 seconds (8.84 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+User-callback calls 228494, time in user-callback 0.29 sec

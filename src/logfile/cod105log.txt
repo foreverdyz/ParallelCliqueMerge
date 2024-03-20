@@ -1,0 +1,50 @@
+
+Gurobi 11.0.1 (win64) logging started Sat Mar 16 22:43:31 2024
+
+Set parameter LogFile to value "res/logfile/cod105log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 1024 rows, 1024 columns and 57344 nonzeros
+Model fingerprint: 0xc139e940
+Variable types: 0 continuous, 1024 integer (1024 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective -12.0000000
+Presolve time: 0.03s
+Presolved: 1024 rows, 1024 columns, 57344 nonzeros
+Variable types: 0 continuous, 1024 integer (1024 binary)
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    7032   -1.8282152e+01   7.567352e+00   0.000000e+00      5s
+    7298   -1.8285714e+01   0.000000e+00   0.000000e+00      5s
+
+Root relaxation: objective -1.828571e+01, 7298 iterations, 5.33 seconds (14.67 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  -18.28571    0  204  -12.00000  -18.28571  52.4%     -    8s
+     0     0  -18.28571    0  242  -12.00000  -18.28571  52.4%     -    8s
+     0     0  -18.28571    0  204  -12.00000  -18.28571  52.4%     -   17s
+     0     0  -18.28571    0  204  -12.00000  -18.28571  52.4%     -   18s
+     0     2  -18.28571    0  204  -12.00000  -18.28571  52.4%     -   28s
+     1     3     cutoff    1       -12.00000  -18.28571  52.4% 13064   31s
+
+Explored 7 nodes (53259 simplex iterations) in 32.23 seconds (95.85 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 1: -12 
+No other solutions better than -12
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -1.200000000000e+01, best bound -1.200000000000e+01, gap 0.0000%
+
+User-callback calls 923, time in user-callback 0.00 sec

@@ -1,0 +1,49 @@
+
+Gurobi 11.0.1 (win64) logging started Sat Mar 16 23:46:56 2024
+
+Set parameter LogFile to value "res/logfile/eil33-2log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 64 rows, 4516 columns and 88486 nonzeros
+Model fingerprint: 0x93f6cee5
+Variable types: 0 continuous, 4516 integer (4516 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [7e+01, 4e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 3163.9747880
+Presolve removed 32 rows and 0 columns
+Presolve time: 0.05s
+Presolved: 32 rows, 4516 columns, 44243 nonzeros
+Variable types: 0 continuous, 4516 integer (4516 binary)
+
+Root relaxation: objective 8.112790e+02, 228 iterations, 0.02 seconds (0.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  811.27900    0   30 3163.97479  811.27900  74.4%     -    0s
+H    0     0                    1181.0089060  811.27900  31.3%     -    0s
+     0     0  813.03037    0   30 1181.00891  813.03037  31.2%     -    0s
+     0     2  813.03037    0   30 1181.00891  813.03037  31.2%     -    0s
+H   96    75                    1148.2104850  818.86626  28.7%  21.0    0s
+*  146    99              11    1110.5384390  818.86626  26.3%  19.2    0s
+H  161   118                    1071.2363950  818.86626  23.6%  19.0    0s
+H  387   196                    1000.2406150  818.86626  18.1%  16.3    0s
+*  716   288              30     989.8277710  826.40225  16.5%  14.8    0s
+* 1497   403              13     987.6741330  835.14230  15.4%  13.5    1s
+* 4959   497              23     934.0079160  885.77809  5.16%  12.1    2s
+
+Explored 5997 nodes (67353 simplex iterations) in 2.66 seconds (2.92 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 9: 934.008 987.674 989.828 ... 3163.97
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 9.340079160000e+02, best bound 9.340079160000e+02, gap 0.0000%
+
+User-callback calls 12292, time in user-callback 0.00 sec

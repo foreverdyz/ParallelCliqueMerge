@@ -1,0 +1,43 @@
+
+Gurobi 11.0.1 (win64) logging started Sat Mar 16 23:48:59 2024
+
+Set parameter LogFile to value "res/logfile/fiballlog.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 5479 rows, 34219 columns and 137296 nonzeros
+Model fingerprint: 0x0b4fd49e
+Variable types: 1 continuous, 34218 integer (33960 binary)
+Coefficient statistics:
+  Matrix range     [6e-01, 9e+01]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 5e+01]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 432.0000000
+Presolve removed 3056 rows and 1763 columns
+Presolve time: 0.17s
+Presolved: 2423 rows, 32456 columns, 97820 nonzeros
+Variable types: 0 continuous, 32456 integer (32102 binary)
+Found heuristic solution: objective 431.0000000
+
+Root relaxation: objective 1.370692e+02, 2936 iterations, 0.07 seconds (0.11 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  137.06917    0  175  431.00000  137.06917  68.2%     -    0s
+H    0     0                     159.0000000  137.06917  13.8%     -    0s
+H    0     0                     138.0000000  137.06917  0.67%     -    0s
+     0     0  137.06917    0  175  138.00000  137.06917  0.67%     -    0s
+
+Explored 1 nodes (4890 simplex iterations) in 0.67 seconds (0.65 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 4: 138 159 431 432 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.380000000000e+02, best bound 1.380000000000e+02, gap 0.0000%
+
+User-callback calls 318, time in user-callback 0.00 sec

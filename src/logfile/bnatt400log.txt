@@ -1,0 +1,83 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 00:49:57 2024
+
+Set parameter LogFile to value "res/logfile/bnatt400log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 12070 rows, 3600 columns and 36196 nonzeros
+Model fingerprint: 0x0d2b771f
+Variable types: 0 continuous, 3600 integer (3600 binary)
+Coefficient statistics:
+  Matrix range     [1e-01, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-01, 2e+00]
+Presolve removed 6546 rows and 1697 columns
+Presolve time: 0.08s
+Presolved: 5524 rows, 1903 columns, 17697 nonzeros
+Crushed 4371 out of 6028 user cuts to presolved model
+Variable types: 0 continuous, 1903 integer (1903 binary)
+
+Root relaxation: objective 0.000000e+00, 1222 iterations, 0.03 seconds (0.08 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0  397          -    0.00000      -     -    0s
+     0     0    0.00000    0  697          -    0.00000      -     -    0s
+     0     0    0.00000    0  707          -    0.00000      -     -    1s
+     0     0    0.00000    0  446          -    0.00000      -     -    2s
+     0     0    0.00000    0  490          -    0.00000      -     -    2s
+     0     0    0.00000    0  447          -    0.00000      -     -    3s
+     0     0    0.00000    0  447          -    0.00000      -     -    3s
+     0     2    0.00000    0  447          -    0.00000      -     -    4s
+    55    66    0.00000    6  618          -    0.00000      -   967    5s
+  2213  1433    0.00000   14  694          -    0.00000      -   323   10s
+  3329  1676    0.00000   24  797          -    0.00000      -   316   15s
+  3336  1680    0.00000   18  783          -    0.00000      -   315   20s
+  3513  1812    0.00000   22  563          -    0.00000      -  42.5   25s
+  3930  1681    0.00000   31  499          -    0.00000      -   141   32s
+  4227  1587 infeasible   27               -    0.00000      -   205   35s
+  4795  1371 infeasible   26               -    0.00000      -   326   41s
+  5382  1162 infeasible   26               -    0.00000      -   399   45s
+  5983   970    0.00000   24  599          -    0.00000      -   457   50s
+  6690   735 infeasible   26               -    0.00000      -   466   55s
+  7356   512    0.00000   22  650          -    0.00000      -   475   61s
+  7843   368    0.00000   25  627          -    0.00000      -   479   65s
+  8275   240    0.00000   24  575          -    0.00000      -   485   76s
+  8559   213    0.00000   25  595          -    0.00000      -   490   81s
+  9026   199 infeasible   26               -    0.00000      -   498   85s
+  9728   172    0.00000   24  624          -    0.00000      -   530   92s
+ 10012   152 infeasible   24               -    1.00000      -   533   95s
+ 10808   140 infeasible   26               -    1.00000      -   583  101s
+ 11561   113 infeasible   28               -    1.00000      -   629  107s
+ 11953   108    1.00000   23  561          -    1.00000      -   650  111s
+ 12795    89    1.00000   24  628          -    1.00000      -   689  117s
+ 13221    92 infeasible   25               -    1.00000      -   706  121s
+ 13763    76    1.00000   21  547          -    1.00000      -   729  125s
+*13841    76              27       1.0000000    1.00000  0.00%   733  125s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 7
+  Implied bound: 13
+  Clique: 3
+  MIR: 27
+  Flow cover: 134
+  Inf proof: 9
+  Zero half: 61
+  RLT: 11
+  BQP: 5
+
+Explored 14044 nodes (11498078 simplex iterations) in 125.03 seconds (259.87 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 1: 1 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+00, best bound 1.000000000000e+00, gap 0.0000%
+
+User-callback calls 35183, time in user-callback 0.00 sec

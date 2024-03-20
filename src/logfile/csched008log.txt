@@ -1,0 +1,74 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 02:46:15 2024
+
+Set parameter LogFile to value "res/logfile/csched008log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 531 rows, 1536 columns and 9768 nonzeros
+Model fingerprint: 0xa8ce49d4
+Variable types: 252 continuous, 1284 integer (1284 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 298 rows and 77 columns
+Presolve time: 0.00s
+Presolved: 233 rows, 1459 columns, 4415 nonzeros
+Crushed 81 out of 81 user cuts to presolved model
+Variable types: 0 continuous, 1459 integer (1284 binary)
+
+Root relaxation: objective 1.710000e+02, 569 iterations, 0.00 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  171.00000    0   76          -  171.00000      -     -    0s
+     0     0  171.00000    0  179          -  171.00000      -     -    0s
+     0     0  171.00000    0  149          -  171.00000      -     -    0s
+     0     0  171.00000    0  135          -  171.00000      -     -    0s
+     0     0  171.00000    0  134          -  171.00000      -     -    0s
+     0     0  171.00000    0  129          -  171.00000      -     -    0s
+     0     0  171.00000    0  106          -  171.00000      -     -    0s
+     0     2  171.00000    0   99          -  171.00000      -     -    0s
+H 1968  1476                     190.0000000  171.00000  10.0%  44.0    1s
+H 1969  1403                     189.0000000  171.00000  9.52%  44.0    1s
+H 1969  1332                     188.0000000  171.00000  9.04%  44.0    1s
+H 1971  1267                     187.0000000  171.00000  8.56%  43.9    1s
+H 1974  1207                     184.0000000  171.00000  7.07%  49.5    2s
+H 2047  1192                     182.0000000  171.00000  6.04%  50.6    2s
+H 2048  1135                     178.0000000  171.00000  3.93%  50.6    2s
+H 2104  1111                     177.0000000  171.00000  3.39%  50.8    2s
+H 2109  1058                     176.0000000  171.00000  2.84%  50.8    2s
+H 2356  1106                     175.0000000  171.00000  2.29%  50.4    2s
+H 2420  1077                     174.0000000  171.00000  1.72%  50.4    3s
+  7601  3283  172.00000   29  142  174.00000  171.00000  1.72%  35.0    6s
+ 16159  8759  173.00000   41  133  174.00000  171.00000  1.72%  31.9   10s
+ 27241 12020  172.00000   73  117  174.00000  171.00000  1.72%  29.6   15s
+ 48725 12085  173.00000   50  124  174.00000  172.00000  1.15%  25.6   20s
+H48728 11482                     173.0000000  172.00000  0.58%  25.6   20s
+ 67246  5626  172.00000   79   32  173.00000  172.00000  0.58%  24.7   25s
+
+Cutting planes:
+  Gomory: 4
+  Implied bound: 2
+  MIR: 15
+  StrongCG: 2
+  Flow cover: 22
+  GUB cover: 2
+  Zero half: 2
+  RLT: 11
+  Relax-and-lift: 2
+
+Explored 74153 nodes (1860749 simplex iterations) in 25.81 seconds (44.47 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 10: 173 174 175 ... 188
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.730000000000e+02, best bound 1.730000000000e+02, gap 0.0000%
+
+User-callback calls 150600, time in user-callback 0.02 sec

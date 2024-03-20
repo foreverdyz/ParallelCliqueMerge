@@ -1,0 +1,36 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 02:47:34 2024
+
+Set parameter LogFile to value "res/logfile/decomp2log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 18837 rows, 14387 columns and 86857 nonzeros
+Model fingerprint: 0x7d7222a8
+Variable types: 0 continuous, 14387 integer (14379 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  Objective range  [1e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 8e+00]
+Presolve removed 12627 rows and 9086 columns
+Presolve time: 0.11s
+Presolved: 6210 rows, 5301 columns, 24181 nonzeros
+Crushed 3936 out of 4624 user cuts to presolved model
+Variable types: 0 continuous, 5301 integer (5300 binary)
+Found heuristic solution: objective -140.0000000
+Found heuristic solution: objective -152.0000000
+Found heuristic solution: objective -160.0000000
+
+Explored 0 nodes (0 simplex iterations) in 0.39 seconds (0.16 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 3: -160 -152 -140 
+No other solutions better than -160
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -1.600000000000e+02, best bound -1.600000000000e+02, gap 0.0000%
+
+User-callback calls 482, time in user-callback 0.00 sec
