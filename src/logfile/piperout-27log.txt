@@ -1,0 +1,52 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 09:07:29 2024
+
+Set parameter LogFile to value "res/logfile/piperout-27log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 20287 rows, 11659 columns and 175655 nonzeros
+Model fingerprint: 0x81354811
+Variable types: 24 continuous, 11635 integer (11506 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 8e+02]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 3e+05]
+  RHS range        [1e+00, 1e+03]
+Presolve removed 14145 rows and 5659 columns
+Presolve time: 0.22s
+Presolved: 6142 rows, 6000 columns, 22780 nonzeros
+Crushed 1461 out of 1830 user cuts to presolved model
+Variable types: 0 continuous, 6000 integer (5910 binary)
+
+Root relaxation: objective 7.506667e+03, 4386 iterations, 0.05 seconds (0.05 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 7506.66667    0   28          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+     0     0 7506.66667    0   30          - 7506.66667      -     -    0s
+H    0     0                    8124.0000000 7506.66667  7.60%     -    0s
+     0     0 7572.00000    0   11 8124.00000 7572.00000  6.79%     -    0s
+     0     0     cutoff    0      8124.00000 8124.00000  0.00%     -    0s
+
+Explored 1 nodes (5440 simplex iterations) in 1.00 seconds (0.74 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 1: 8124 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 8.124000000000e+03, best bound 8.124000000000e+03, gap 0.0000%
+
+User-callback calls 733, time in user-callback 0.00 sec

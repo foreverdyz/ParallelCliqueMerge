@@ -1,0 +1,47 @@
+
+Gurobi 11.0.1 (win64) logging started Sat Mar 16 01:38:49 2024
+
+Set parameter LogFile to value "res/logfile/physiciansched6-2log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 214493 rows, 111827 columns and 623931 nonzeros
+Model fingerprint: 0x4be03325
+Variable types: 2481 continuous, 109346 integer (109346 binary)
+Coefficient statistics:
+  Matrix range     [3e-01, 1e+03]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 5e+02]
+  RHS range        [1e+00, 3e+02]
+Presolve removed 189824 rows and 93208 columns
+Presolve time: 0.14s
+Presolved: 24669 rows, 18619 columns, 70690 nonzeros
+Crushed 11832 out of 74881 user cuts to presolved model
+Variable types: 2 continuous, 18617 integer (18100 binary)
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.5718500e+04   1.289375e+03   0.000000e+00     24s
+    3725    4.9324000e+04   0.000000e+00   0.000000e+00     24s
+
+Root relaxation: objective 4.932400e+04, 3725 iterations, 0.16 seconds (0.19 work units)
+Total elapsed time = 24.15s (DegenMoves)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+H    0     0                    49324.000000 19076.5000  61.3%     -   24s
+     0     0          -    0      49324.0000 49324.0000  0.00%     -   24s
+
+Explored 1 nodes (4635 simplex iterations) in 24.22 seconds (0.63 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 1: 49324 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.932400000000e+04, best bound 4.932400000000e+04, gap 0.0000%
+
+User-callback calls 268, time in user-callback 0.00 sec

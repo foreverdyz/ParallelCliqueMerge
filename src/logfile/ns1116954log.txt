@@ -1,0 +1,88 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 08:48:00 2024
+
+Set parameter LogFile to value "res/logfile/ns1116954log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 164145 rows, 12648 columns and 727364 nonzeros
+Model fingerprint: 0x79694357
+Variable types: 5166 continuous, 7482 integer (7482 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+01]
+Presolve removed 85089 rows and 738 columns
+Presolve time: 0.45s
+Presolved: 79056 rows, 11910 columns, 280748 nonzeros
+Crushed 19913 out of 36576 user cuts to presolved model
+Variable types: 4428 continuous, 7482 integer (7482 binary)
+
+Deterministic concurrent LP optimizer: primal and dual simplex (primal and dual model)
+Showing primal log only...
+
+Root relaxation presolved: 79056 rows, 11910 columns, 280748 nonzeros
+
+
+Use crossover to convert LP symmetric solution to basic solution...
+Concurrent spin time: 0.02s
+
+Solved with dual simplex
+
+Root relaxation: objective 0.000000e+00, 5250 iterations, 0.40 seconds (0.31 work units)
+Total elapsed time = 5.57s (DegenMoves)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   88          -    0.00000      -     -    6s
+     0     0    0.00000    0  414          -    0.00000      -     -   10s
+     0     0    0.00000    0  378          -    0.00000      -     -   11s
+     0     0    0.00000    0  200          -    0.00000      -     -   22s
+     0     0    0.00000    0  301          -    0.00000      -     -   23s
+     0     0    0.00000    0  115          -    0.00000      -     -   32s
+     0     0    0.00000    0  336          -    0.00000      -     -   34s
+     0     0    0.00000    0   56          -    0.00000      -     -   43s
+     0     0    0.00000    0  212          -    0.00000      -     -   44s
+     0     0    0.00000    0  270          -    0.00000      -     -   56s
+     0     0    0.00000    0  313          -    0.00000      -     -   58s
+     0     0    0.00000    0  276          -    0.00000      -     -   73s
+     0     0    0.00000    0  348          -    0.00000      -     -   75s
+     0     0    0.00000    0  139          -    0.00000      -     -   85s
+     0     0    0.00000    0  105          -    0.00000      -     -   90s
+     0     2    0.00000    0  104          -    0.00000      -     -  103s
+     3     8    0.00000    2  366          -    0.00000      -  4535  107s
+     7    16    0.00000    3  579          -    0.00000      -  4098  113s
+    15    26    0.00000    4  629          -    0.00000      -  4244  117s
+    35    46    0.00000    5  549          -    0.00000      -  4426  120s
+    45    54    0.00000    6  551          -    0.00000      -  3752  126s
+    66    76    0.00000    7  560          -    0.00000      -  3245  132s
+    77   107    0.00000    7  559          -    0.00000      -  3057  142s
+   110   180    0.00000   10   42          -    0.00000      -  3657  156s
+H  191   305                       0.0000000    0.00000  0.00%  3043  178s
+
+Cutting planes:
+  User: 92
+  Cover: 15
+  Implied bound: 64
+  Clique: 8
+  MIR: 108
+  StrongCG: 22
+  GUB cover: 32
+  Zero half: 35
+  RLT: 58
+  Relax-and-lift: 34
+  BQP: 71
+
+Explored 324 nodes (988910 simplex iterations) in 178.87 seconds (390.89 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 1: 0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+User-callback calls 4624, time in user-callback 0.00 sec

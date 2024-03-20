@@ -1,0 +1,63 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 08:57:42 2024
+
+Set parameter LogFile to value "res/logfile/nu25-pr12log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 2782 rows, 5868 columns and 18842 nonzeros
+Model fingerprint: 0xee8e898a
+Variable types: 0 continuous, 5868 integer (5832 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 3e+01]
+  Objective range  [5e+00, 3e+02]
+  Bounds range     [1e+00, 6e+00]
+  RHS range        [1e+00, 7e+00]
+Presolve removed 2248 rows and 4466 columns
+Presolve time: 0.35s
+Presolved: 534 rows, 1402 columns, 4284 nonzeros
+Variable types: 0 continuous, 1402 integer (1388 binary)
+Found heuristic solution: objective 59335.000000
+
+Root relaxation: objective 5.355500e+04, 203 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 53555.0000    0   10 59335.0000 53555.0000  9.74%     -    0s
+H    0     0                    53905.000000 53555.0000  0.65%     -    0s
+     0     0 53555.0000    0   10 53905.0000 53555.0000  0.65%     -    0s
+     0     0 53555.0000    0   10 53905.0000 53555.0000  0.65%     -    0s
+     0     0 53669.0000    0   11 53905.0000 53669.0000  0.44%     -    0s
+     0     0 53690.7400    0   32 53905.0000 53690.7400  0.40%     -    0s
+     0     0 53690.7400    0   12 53905.0000 53690.7400  0.40%     -    0s
+     0     0 53690.7400    0   26 53905.0000 53690.7400  0.40%     -    0s
+     0     0 53690.7400    0   18 53905.0000 53690.7400  0.40%     -    0s
+     0     0 53692.6500    0   28 53905.0000 53692.6500  0.39%     -    0s
+     0     0 53692.6500    0   26 53905.0000 53692.6500  0.39%     -    0s
+     0     0 53720.4463    0   17 53905.0000 53720.4463  0.34%     -    0s
+     0     0 53721.1981    0   20 53905.0000 53721.1981  0.34%     -    0s
+     0     0 53721.1981    0   18 53905.0000 53721.1981  0.34%     -    0s
+     0     2 53721.3417    0   18 53905.0000 53721.3417  0.34%     -    0s
+
+Cutting planes:
+  Gomory: 18
+  Implied bound: 2
+  MIR: 13
+  StrongCG: 5
+  Inf proof: 2
+  Zero half: 1
+  Mod-K: 1
+  Relax-and-lift: 1
+
+Explored 79 nodes (1525 simplex iterations) in 0.81 seconds (0.16 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 3: 53905 59335 60210 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.390500000000e+04, best bound 5.390500000000e+04, gap 0.0000%
+
+User-callback calls 1054, time in user-callback 0.00 sec

@@ -1,0 +1,50 @@
+
+Gurobi 11.0.1 (win64) logging started Mon Mar 18 01:10:58 2024
+
+Set parameter LogFile to value "res/logfile/peg-solitaire-a3log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 13125 rows, 4552 columns and 54440 nonzeros
+Model fingerprint: 0x2671e83a
+Variable types: 0 continuous, 4552 integer (4552 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Presolve removed 9532 rows and 405 columns
+Presolve time: 0.09s
+Presolved: 3593 rows, 4147 columns, 25351 nonzeros
+Crushed 5886 out of 6440 user cuts to presolved model
+Variable types: 0 continuous, 4147 integer (4147 binary)
+
+Root relaxation: objective 1.000000e+00, 8177 iterations, 0.70 seconds (1.04 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    1.00000    0  351          -    1.00000      -     -    2s
+     0     0    1.00000    0  471          -    1.00000      -     -    2s
+     0     0    1.00000    0  251          -    1.00000      -     -    4s
+     0     0    1.00000    0  185          -    1.00000      -     -    4s
+H    0     0                       1.0000000    1.00000  0.00%     -    5s
+     0     0    1.00000    0  458    1.00000    1.00000  0.00%     -    5s
+
+Cutting planes:
+  Clique: 12
+  MIR: 1
+  Zero half: 36
+  RLT: 2
+
+Explored 1 nodes (45872 simplex iterations) in 5.69 seconds (8.44 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 1: 1 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+00, best bound 1.000000000000e+00, gap 0.0000%
+
+User-callback calls 575, time in user-callback 0.00 sec

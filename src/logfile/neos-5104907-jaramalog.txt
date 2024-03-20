@@ -1,0 +1,129 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 06:23:48 2024
+
+Set parameter LogFile to value "res/logfile/neos-5104907-jaramalog.txt"
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 06:23:48 2024
+
+Set parameter LogFile to value "res/logfile4/neos-5104907-jaramalog1.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 488098 rows, 345856 columns and 2050180 nonzeros
+Model fingerprint: 0xb47997d8
+Variable types: 336336 continuous, 9520 integer (9520 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 9e+01]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 228390 rows and 159766 columns
+Presolve time: 3.55s
+Presolved: 259708 rows, 186090 columns, 1077717 nonzeros
+Crushed 0 out of 24 user cuts to presolved model
+Variable types: 181725 continuous, 4365 integer (4365 binary)
+Deterministic concurrent LP optimizer: primal simplex, dual simplex, and barrier
+Showing barrier log only...
+
+Root barrier log...
+
+Elapsed ordering time = 5s
+Ordering time: 8.88s
+
+Barrier statistics:
+ AA' NZ     : 1.014e+07
+ Factor NZ  : 2.764e+08 (roughly 2.4 GB of memory)
+ Factor Ops : 4.622e+11 (roughly 3 seconds per iteration)
+ Threads    : 7
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   1.40064334e+06 -5.48190699e+05  8.95e+01 6.18e-01  2.28e+01    18s
+   1   1.00026572e+06 -5.46911861e+05  6.25e+01 4.78e-01  1.38e+01    20s
+
+Barrier performed 1 iterations in 19.72 seconds (22.42 work units)
+Barrier solve interrupted - model solved by another algorithm
+
+Concurrent spin time: 1.84s (can be avoided by choosing Method=3)
+
+Solved with dual simplex
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+   27882    7.9393506e+02   0.000000e+00   0.000000e+00     22s
+
+Root relaxation: objective 7.939351e+02, 27882 iterations, 17.49 seconds (21.07 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  793.93506    0  570          -  793.93506      -     -   23s
+     0     0  884.95219    0  587          -  884.95219      -     -   66s
+     0     0  886.08072    0  566          -  886.08072      -     -   67s
+     0     0  888.74705    0  566          -  888.74705      -     -   69s
+     0     0  888.74705    0  562          -  888.74705      -     -   70s
+     0     0  888.74705    0  563          -  888.74705      -     -   70s
+     0     0  894.22222    0  319          -  894.22222      -     -   83s
+     0     0  895.71739    0  320          -  895.71739      -     -   85s
+     0     0  896.00958    0  482          -  896.00958      -     -   94s
+     0     0  896.00958    0  482          -  896.00958      -     -   94s
+     0     0  898.49216    0  482          -  898.49216      -     -   96s
+     0     0  898.49216    0  492          -  898.49216      -     -  106s
+     0     0  899.00565    0  456          -  899.00565      -     -  107s
+     0     0  899.00565    0  370          -  899.00565      -     -  115s
+     0     0  899.00565    0  365          -  899.00565      -     -  117s
+     0     0  899.00565    0  339          -  899.00565      -     -  118s
+     0     0  899.00565    0  339          -  899.00565      -     -  128s
+H    0     0                     946.0000000  899.00565  4.97%     -  140s
+     0     2  899.00565    0  339  946.00000  899.00565  4.97%     -  148s
+     1     4  908.00000    1  269  946.00000  900.96460  4.76% 18266  154s
+     3     8  912.66667    2  274  946.00000  908.00000  4.02% 10944  163s
+     7    11  914.33333    3  316  946.00000  912.25000  3.57%  7420  223s
+    15     8  935.66667    4  255  946.00000  912.25798  3.57% 10457  262s
+    25     9     cutoff    5       946.00000  913.25981  3.46% 13002  570s
+    33     9     cutoff    6       946.00000  920.27999  2.72% 18465  585s
+    42     9  927.66248    7  389  946.00000  921.12950  2.63% 15298  596s
+    51    12     cutoff    8       946.00000  921.22355  2.62% 13170  609s
+    60    18  925.70005    9  466  946.00000  922.98742  2.43% 11690  638s
+    73    26     cutoff   10       946.00000  926.28695  2.08% 10503  711s
+H   76    26                     935.0000000  926.28695  0.93% 10281  711s
+    87    11  929.40654   11  445  935.00000  926.28695  0.93%  9821  716s
+   104     9  926.81067   11  491  935.00000  926.81067  0.88%  8335  726s
+   114     6     cutoff   12       935.00000  926.81082  0.88%  8353  798s
+   122     6  928.00000   13   36  935.00000  927.21111  0.83%  8287  819s
+   130     3  929.50000   14   41  935.00000  929.50000  0.59%  7918  839s
+   135     3  933.00000   15   39  935.00000  931.51874  0.37%  7797  843s
+   138     4  934.50000   17    9  935.00000  931.51874  0.37%  7730  867s
+   140     3     cutoff   18       935.00000  931.51874  0.37%  7668  915s
+   143     1     cutoff   10       935.00000  934.01397  0.11%  7769  921s
+   146     1  934.03352   20   42  935.00000  934.03352  0.10%  7622  943s
+   148     1  934.13445   22   96  935.00000  934.13445  0.09%  7607  949s
+   149     0     cutoff   23       935.00000  935.00000  0.00%  7615  960s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 1
+  Implied bound: 397
+  Clique: 9
+  MIR: 74
+  Flow cover: 752
+  Flow path: 515
+  Zero half: 8
+  Network: 45
+  RLT: 65
+  Relax-and-lift: 56
+  BQP: 100
+  PSD: 4
+
+Explored 150 nodes (1228355 simplex iterations) in 960.58 seconds (1621.41 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 2: 935 946 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 9.350000000000e+02, best bound 9.350000000000e+02, gap 0.0000%
+
+User-callback calls 26040, time in user-callback 0.02 sec
