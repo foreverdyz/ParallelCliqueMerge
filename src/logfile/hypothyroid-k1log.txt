@@ -1,0 +1,43 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 05:03:58 2024
+
+Set parameter LogFile to value "res/logfile/hypothyroid-k1log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 218287 rows, 2602 columns and 860068 nonzeros
+Model fingerprint: 0x3f82c5ca
+Variable types: 0 continuous, 2602 integer (2598 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 3e+03]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 3e+03]
+  RHS range        [1e+00, 3e+03]
+Presolve removed 210501 rows and 6 columns
+Presolve time: 0.07s
+Presolved: 7786 rows, 2596 columns, 436564 nonzeros
+Crushed 110346 out of 210496 user cuts to presolved model
+Variable types: 0 continuous, 2596 integer (2596 binary)
+Found heuristic solution: objective -1569.000000
+Found heuristic solution: objective -2692.000000
+
+Root relaxation: objective -2.899325e+03, 3074 iterations, 1.63 seconds (5.36 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -2899.3247    0 2405 -2692.0000 -2899.3247  7.70%     -    4s
+*    0     0               0    -2851.000000 -2851.0000  0.00%     -    4s
+
+Explored 1 nodes (3360 simplex iterations) in 4.97 seconds (9.02 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 3: -2851 -2692 -1569 
+No other solutions better than -2851
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -2.851000000000e+03, best bound -2.851000000000e+03, gap 0.0000%
+
+User-callback calls 272, time in user-callback 0.00 sec

@@ -1,0 +1,62 @@
+
+Gurobi 11.0.1 (win64) logging started Fri Mar 15 22:47:04 2024
+
+Set parameter LogFile to value "res/logfile/k1mushroomlog.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 853120 rows, 8211 columns and 3371348 nonzeros
+Model fingerprint: 0x0a6b61ea
+Variable types: 0 continuous, 8211 integer (8209 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 4e+03]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 4e+03]
+  RHS range        [1e+00, 4e+03]
+Presolve removed 836702 rows and 2 columns
+Presolve time: 0.36s
+Presolved: 16418 rows, 8209 columns, 1689822 nonzeros
+Crushed 304692 out of 836701 user cuts to presolved model
+Variable types: 0 continuous, 8209 integer (8209 binary)
+Found heuristic solution: objective 0.0000000
+Found heuristic solution: objective -16.0000000
+Found heuristic solution: objective -293.0000000
+Found heuristic solution: objective -368.0000000
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -4.2080000e+03   2.331000e+03   0.000000e+00      8s
+    1939   -4.1476276e+03   1.557376e+03   0.000000e+00     10s
+    4532   -4.1447361e+03   1.794468e+03   0.000000e+00     15s
+    5212   -4.1439756e+03   0.000000e+00   0.000000e+00     17s
+
+Root relaxation: objective -4.143976e+03, 5212 iterations, 9.19 seconds (41.65 work units)
+Total elapsed time = 16.68s (DegenMoves)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -4143.9756    0 4338 -368.00000 -4143.9756  1026%     -   34s
+     0     0 -4093.2652    0 4297 -368.00000 -4093.2652  1012%     -   39s
+H    0     0                    -3288.000000 -4093.2652  24.5%     -   39s
+     0     0 -3563.5519    0 2229 -3288.0000 -3563.5519  8.38%     -   44s
+
+Cutting planes:
+  Clique: 1
+  MIR: 1491
+  Flow cover: 1
+  RLT: 48
+
+Explored 1 nodes (11721 simplex iterations) in 44.60 seconds (106.87 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 5: -3288 -368 -293 ... 0
+No other solutions better than -3288
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -3.288000000000e+03, best bound -3.288000000000e+03, gap 0.0000%
+
+User-callback calls 1331, time in user-callback 0.00 sec

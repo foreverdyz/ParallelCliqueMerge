@@ -1,0 +1,41 @@
+
+Gurobi 11.0.1 (win64) logging started Sun Mar 17 23:53:14 2024
+
+Set parameter LogFile to value "res/logfile/neos-827175log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 27025 rows, 32504 columns and 158126 nonzeros
+Model fingerprint: 0xc42a08c8
+Variable types: 11154 continuous, 21350 integer (21350 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e-05, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 13108 rows and 905 columns
+Presolve time: 0.15s
+Presolved: 13917 rows, 31599 columns, 98835 nonzeros
+Crushed 9150 out of 9150 user cuts to presolved model
+Variable types: 0 continuous, 31599 integer (31598 binary)
+Found heuristic solution: objective 122.0020300
+Found heuristic solution: objective 112.0019200
+
+Root relaxation: interrupted, 319 iterations, 0.00 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0       112.00192  112.00152  0.00%     -    1s
+
+Explored 1 nodes (319 simplex iterations) in 1.11 seconds (0.29 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 2: 112.002 122.002 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.120019200000e+02, best bound 1.120015200000e+02, gap 0.0004%
+
+User-callback calls 264, time in user-callback 0.00 sec

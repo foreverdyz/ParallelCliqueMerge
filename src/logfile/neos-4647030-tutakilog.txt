@@ -1,0 +1,84 @@
+
+Gurobi 11.0.1 (win64) logging started Thu Mar 14 05:51:38 2024
+
+Set parameter LogFile to value "res/logfile/neos-4647030-tutakilog.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 12582 rows, 12600 columns and 3967388 nonzeros
+Model fingerprint: 0xfe2d4a7f
+Variable types: 5600 continuous, 7000 integer (7000 binary)
+Coefficient statistics:
+  Matrix range     [9e-01, 2e+02]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [5e-02, 4e+02]
+  RHS range        [4e-01, 7e+02]
+Presolve removed 5601 rows and 1418 columns (presolve time = 5s) ...
+Presolve removed 6948 rows and 1416 columns
+Presolve time: 6.54s
+Presolved: 5634 rows, 12533 columns, 1981942 nonzeros
+Crushed 4182 out of 4200 user cuts to presolved model
+Variable types: 4151 continuous, 8382 integer (6982 binary)
+Deterministic concurrent LP optimizer: primal and dual simplex
+Showing primal log only...
+
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.4304078e+02   2.519434e+03   1.872204e+11      9s
+    4525    2.6911642e+04   0.000000e+00   0.000000e+00     10s
+Concurrent spin time: 0.02s
+
+Solved with dual simplex
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    3891    2.6911642e+04   0.000000e+00   0.000000e+00     10s
+
+Root relaxation: objective 2.691164e+04, 3891 iterations, 0.79 seconds (1.51 work units)
+Total elapsed time = 10.36s (DegenMoves)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 26911.6416    0  910          - 26911.6416      -     -   10s
+H    0     0                    56768.675200 26911.6416  52.6%     -   11s
+     0     0 26975.0869    0  705 56768.6752 26975.0869  52.5%     -   12s
+     0     0 26977.2657    0  685 56768.6752 26977.2657  52.5%     -   12s
+     0     0 27265.1904    0    8 56768.6752 27265.1904  52.0%     -   13s
+H    0     0                    56184.811700 27265.1927  51.5%     -   13s
+     0     0 27265.1927    0    5 56184.8117 27265.1927  51.5%     -   14s
+H    0     0                    27271.257000 27265.1928  0.02%     -   14s
+     0     0 27265.1928    0  892 27271.2570 27265.1928  0.02%     -   17s
+     0     0 27265.1928    0  702 27271.2570 27265.1928  0.02%     -   18s
+     0     0 27265.1928    0    5 27271.2570 27265.1928  0.02%     -   19s
+     0     0 27265.1928    0    5 27271.2570 27265.1928  0.02%     -   19s
+     0     2 27265.1928    0    5 27271.2570 27265.1928  0.02%     -   20s
+   487   728 27265.2267   37    2 27271.2570 27265.1928  0.02%   1.0   29s
+H  534   728                    27268.481500 27265.1928  0.01%   1.0   29s
+   727  1487 27265.2267   61    2 27268.4815 27265.1928  0.01%   1.0   33s
+  1486  1931 27265.3168  131    3 27268.4815 27265.1928  0.01%   2.1   35s
+  2325  2978 27265.7467  210    3 27268.4815 27265.1928  0.01%   9.2   40s
+  3524  4167 27265.7467  330    3 27268.4815 27265.1928  0.01%   6.4   45s
+  4806  5236 27265.7467  458    3 27268.4815 27265.1928  0.01%   4.9   52s
+H 4849  2050                    27265.706000 27265.1928  0.00%   5.1   52s
+
+Cutting planes:
+  Gomory: 479
+  Implied bound: 6
+  MIR: 1108
+  Relax-and-lift: 2
+
+Explored 5247 nodes (52302 simplex iterations) in 52.32 seconds (122.16 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 5: 27265.7 27268.5 27271.3 ... 56768.7
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.726570600000e+04, best bound 2.726519281629e+04, gap 0.0019%
+
+User-callback calls 13215, time in user-callback 0.00 sec

@@ -1,0 +1,48 @@
+
+Gurobi 11.0.1 (win64) logging started Fri Mar 15 23:34:11 2024
+
+Set parameter LogFile to value "res/logfile/neos-957323log.txt"
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22621.2))
+
+CPU model: AMD Ryzen Threadripper PRO 5975WX 32-Cores, instruction set [SSE2|AVX|AVX2]
+Thread count: 32 physical cores, 64 logical processors, using up to 10 threads
+
+Optimize a model with 12694 rows, 57756 columns and 1652201 nonzeros
+Model fingerprint: 0x462ffa05
+Variable types: 0 continuous, 57756 integer (57756 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+01]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Found heuristic solution: objective 0.0000000
+Presolve removed 10613 rows and 641 columns
+Presolve time: 0.77s
+Presolved: 2081 rows, 57115 columns, 251163 nonzeros
+Crushed 8478 out of 8479 user cuts to presolved model
+Variable types: 0 continuous, 57115 integer (57115 binary)
+Found heuristic solution: objective -179.8001877
+Deterministic concurrent LP optimizer: primal and dual simplex
+Showing primal log only...
+
+Concurrent spin time: 0.00s
+
+Solved with primal simplex
+
+Root relaxation: objective -2.377574e+02, 18989 iterations, 0.42 seconds (0.65 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -237.75741    0   57 -179.80019 -237.75741  32.2%     -    3s
+H    0     0                    -237.7566074 -237.75741  0.00%     -    3s
+
+Explored 1 nodes (34568 simplex iterations) in 3.74 seconds (3.93 work units)
+Thread count was 10 (of 64 available processors)
+
+Solution count 3: -237.757 -179.8 0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -2.377566074090e+02, best bound -2.377574078583e+02, gap 0.0003%
+
+User-callback calls 488, time in user-callback 0.00 sec
