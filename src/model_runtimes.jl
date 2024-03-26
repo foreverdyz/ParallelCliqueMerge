@@ -79,7 +79,6 @@ function model_runtimes(filename::String, numthreads::Int64, max_tolerance::Floa
         c3_final = true
     end
     
-    return c2_final, c3_final, length(c1), length(c2), length(c3)
     model_rebuild = rebuild_model_1(
         con_matrix, con_ub, con_lb, 
         var_ub, var_lb, var_type, obj_coef, 
