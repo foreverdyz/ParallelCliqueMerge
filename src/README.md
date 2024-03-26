@@ -55,3 +55,11 @@ julia> org_runtimes("30n20b8.mps")   #"30n20b8.mps" is the file name of the mode
 
 ## pre_compile_model.mps
 pre_compile_model.mps is a toy model for Julia to compile all functions we need.
+
+## build_model_other_solvers.jl
+
+This script will write our reduced model as a mps file. All user cuts will be named starting with "user_lazy_con". Please place them as user cuts when using the model.
+```julia
+julia> include("build_model_other_solvers.jl")
+julia> model_mps("30n20b8.mps", nthreads(), 0.00001, 3000, 1_000_000, 100_000)
+```
