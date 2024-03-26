@@ -4,13 +4,11 @@ using BangBang
 using JuMP
 
 """
-    rebuild_model_0(): build model only with org set pack
-    rebuild_model_1(): build model with all sets we generated
-    rebuild_model_2(): build direct_model only with org set pack
-    rebuild_model_3(): build direct_model with all sets we generated
+    rebuild_model_general()
+    Return a model without specific, and for all constraints, in which names start with "user_lazy_con" should be added to cut pool as user cuts
 """
 
-function rebuild_model_1(
+function rebuild_model_general(
         con_matrix::AbstractSparseArray, con_ub::AbstractVector, con_lb::AbstractVector,
         var_ub::AbstractVector, var_lb::AbstractVector, var_type::AbstractVector, 
         obj_coef::AbstractVector, 
