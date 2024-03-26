@@ -194,6 +194,75 @@ function rebuild_model_general(
     return model_rebuild
 end
 
+function rebuild_model_0(
+        con_matrix::AbstractSparseArray, con_ub::AbstractVector, con_lb::AbstractVector,
+        var_ub::AbstractVector, var_lb::AbstractVector, var_type::AbstractVector, 
+        obj_coef::AbstractVector, 
+        c1::Vector{Vector{Int64}}, 
+        is_min::Bool, bin_to_org::Dict{Int64, Int64}
+    )
+    con_num = length(con_ub)
+    con_type = zeros(con_num)
+    var_num = length(var_ub)
+    #denote constraints' types:
+    #if lb = -inf, con <= ub
+    #if ub = inf, con >= lb
+    #otherwise, con == ub or lb
+    for index in 1:con_num
+        if con_lb[index] == -Inf
+            con_type[index] = -1
+        elseif con_ub[index] == Inf
+            con_type[index] = 1
+        end
+    end
+    for index in 1:con_num
+        if con_lb[index] == -Inf
+            if con_ub[index] == Inf
+                con_type[index] = 2
+            end
+        end
+    end
+    
+    #check we get correct info of model
+    #model_rebuild = direct_model(Gurobi.Optimizer())#Gurobi.Optimizer)
+    model_rebuild = Model();
+    #build variables
+    @variable(model_rebuild, var_ub[i] >= x[i in 1:var_num] >= var_lb[i])
+
+    #set binary and integer variables
+    for i in 1:var_num
+        (var_type[i] == 2) && (set_binary(x[i]))
+        (var_type[i] == 1) && (set_integer(x[i]))
+    end
+
+    #build constraints based on constraints' types
+    for j in 1:con_num
+        if con_type[j] == 1
+            @constraint(model_rebuild, sum(con_matrix[j, i] * x[i] for i in findnz(con_matrix[j, :])[1]) >= con_lb[j])
+        elseif con_type[j] == -1
+            @constraint(model_rebuild, sum(con_matrix[j, i] * x[i] for i in findnz(con_matrix[j, :])[1]) <= con_ub[j])
+        elseif  con_type[j] == 0
+            @constraint(model_rebuild, sum(con_matrix[j, i] * x[i] for i in findnz(con_matrix[j, :])[1]) == con_lb[j])
+        end
+    end
+    
+    if length(c1) > 0
+        c1 = _remap_cons(c1, bin_to_org, var_lb)
+        @constraint(
+            model_rebuild,
+            con1[j in 1:length(c1)],
+            sum(c1[j][i] * x[i] for i in findnz(c1[j])[1]) <= 1 + sum(min.(findnz(c1[j])[2], 0))
+        )
+    end
+    
+    #set objective function
+    (is_min) ? (@objective(model_rebuild, Min, sum(obj_coef[i] * x[i] for i in 1:var_num))) : (@objective(model_rebuild, Max, sum(obj_coef[i] * x[i] for i in 1:var_num)))
+    
+    
+    return model_rebuild
+end
+
+
 function _remap_cons(set::Vector{Vector{Int64}}, bin_to_org::Dict{Int64, Int64}, var_lb::AbstractVector)
     m = length(set)
     gen_set = []
