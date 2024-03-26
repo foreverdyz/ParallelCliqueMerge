@@ -72,7 +72,7 @@ function model_mps(filename::String, numthreads::Int64, max_tolerance::Float64, 
         c3_final = true
     end
     
-    model_rebuild = rebuild_model_1(
+    model_rebuild = rebuild_model_general(
         con_matrix, con_ub, con_lb, 
         var_ub, var_lb, var_type, obj_coef, 
         c1, c2, c3, c4, c12, c22, c32, c42, 
