@@ -160,7 +160,6 @@ function rebuild_model_general(
         c22 = _remap_cons(c22, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            con22[j in 1:length(c22)],
             sum(c22[j][i] * x[i] for i in findnz(c22[j])[1]) <= 1 + sum(min.(findnz(c22[j])[2], 0)),
             base_name = "user_lazy_con22_"*string(i)
         )
@@ -171,7 +170,6 @@ function rebuild_model_general(
         c32 = _remap_cons(c32, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            con32[j in 1:length(c32)],
             sum(c32[j][i] * x[i] for i in findnz(c32[j])[1]) <= 1 + sum(min.(findnz(c32[j])[2], 0)),
             base_name = "user_lazy_con32_"*string(i)
         )
@@ -181,7 +179,6 @@ function rebuild_model_general(
         c42 = _remap_cons(c42, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            con42[j in 1:length(c42)],
             sum(c42[j][i] * x[i] for i in findnz(c42[j])[1]) <= 1 + sum(min.(findnz(c42[j])[2], 0)),
             base_name = "user_lazy_con42_"*string(i)
         )
