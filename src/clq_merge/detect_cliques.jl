@@ -22,8 +22,9 @@ function detect_cliques_parallel(knapsack_set::Vector{Tuple{Any, Any, Any}}, num
     numthreads = min(m, numthreads)
     numthreads = max(1, numthreads)
     width = floor(Int64, m / numthreads)
-    clique_set_g = [Vector{Int64}[] for _ in 1:length(knapsack_set)]
+    clique_set_g = Vector{Int64}[]
     main_cliques_g = [Int64[] for _ in 1:length(knapsack_set)]
+    spl = SpinLock()
     index_set = shuffle(1:m)
     @threads for id in 1:numthreads
         let
@@ -38,7 +39,11 @@ function detect_cliques_parallel(knapsack_set::Vector{Tuple{Any, Any, Any}}, num
                 local C = _unique_cliques_find(knapsack_set[j][1], knapsack_set[j][2], knapsack_set[j][3])
                 if C != false
                     main_cliques_g[j] = C[1]
-                    (length(C) > 1) && (clique_set_g[j] =  C[2:end])
+                    if length(C) > 1
+                        lock(spl)
+                        append!!(clique_set_g, C[2:end])
+                        unlock(spl)
+                    end
                 end
             end
         end
