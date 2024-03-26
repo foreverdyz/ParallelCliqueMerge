@@ -2,6 +2,7 @@
 
 using BangBang
 using JuMP
+using SparseArrays
 
 """
     rebuild_model_general()
