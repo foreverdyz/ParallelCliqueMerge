@@ -108,12 +108,6 @@ function rebuild_model_1(
         (length(c32[i]) > 0) && (append!!(c_temp, c32[i]))
     end
     c32 = copy(c_temp)
-    iter = length(c4)
-    c_temp = Vector{Int64}[]
-    for i in 1:iter
-        (length(c4[i]) > 0) && (append!!(c_temp, c4[i]))
-    end
-    c4 = copy(c_temp)
 
     con_num = length(con_ub)
     con_type = zeros(con_num)
@@ -374,12 +368,6 @@ function rebuild_model_3(
         (length(c32[i]) > 0) && (append!!(c_temp, c32[i]))
     end
     c32 = copy(c_temp)
-    iter = length(c4)
-    c_temp = Vector{Int64}[]
-    for i in 1:iter
-        (length(c4[i]) > 0) && (append!!(c_temp, c4[i]))
-    end
-    c4 = copy(c_temp)
     
     con_num = length(con_ub)
     con_type = zeros(con_num)
