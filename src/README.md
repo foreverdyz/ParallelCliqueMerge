@@ -35,7 +35,7 @@ julia> test_runtime("30n20b8.mps", nthreads(), 0.00001, 3000, 1_000_000, 100_000
 
 ## rebuild_model.jl
 
-This script will build the reduced model by JuMP based on information provided by the presolving method.
+This script will build the reduced model by JuMP based on information provided by the presolving method. "rebuild_model_0()" and "rebuild_model_1()" build models with syntax from JuMP like "model = Model()". However, "rebuild_model_0()" and "rebuild_model_1()" build models with syntax "model = direct_model(Gurobi.Optimier())". For more details see [JuMP Doc](https://jump.dev/JuMP.jl/stable/manual/models/#Direct-mode). There are some performance differences between the two model-building approaches. You can select way based on your problem types, devices, and software versions.
 
 ## model_runtimes.jl
 
