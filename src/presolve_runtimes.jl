@@ -20,7 +20,7 @@ function test_runtime(filename::String, numthreads::Int, max_tolerance::Float64,
     obj_coef, is_min = generate_info("pre_compile_model.mps", max_tolerance);
     c1, c2, c3, c4, c12, c22, c32, c42 = generate_sets(
         set_pack, set_pack_new, knapsack_set, 
-        org_to_bin, numthreads
+        org_to_bin, numthreads,
         max_length, max_nonzero, max_domian
     );
     
