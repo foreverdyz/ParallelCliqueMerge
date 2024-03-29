@@ -39,12 +39,7 @@ function rebuild_model_general(
         (length(c32[i]) > 0) && (append!!(c_temp, c32[i]))
     end
     c32 = copy(c_temp)
-    iter = length(c4)
-    c_temp = Vector{Int64}[]
-    for i in 1:iter
-        (length(c4[i]) > 0) && (append!!(c_temp, c4[i]))
-    end
-    c4 = copy(c_temp)
+
 
     con_num = length(con_ub)
     con_type = zeros(con_num)
@@ -102,13 +97,11 @@ function rebuild_model_general(
     if length(c2) > 0
         c2 = _remap_cons(c2, bin_to_org, var_lb)
         if c2_final
-            for i in 1:length(c2)
-                @constraint(
-                    model_rebuild,
-                    sum(c2[j][i] * x[i] for i in findnz(c2[j])[1]) <= 1 + sum(min.(findnz(c2[j])[2], 0)),
-                    base_name = "user_lazy_con2_"*string(i)
-                )
-            end
+            @constraint(
+                model_rebuild,
+                user_lazy_con2[j in 1:length(c2)],
+                sum(c2[j][i] * x[i] for i in findnz(c2[j])[1]) <= 1 + sum(min.(findnz(c2[j])[2], 0))
+            )
         else
             @constraint(
               model_rebuild,
@@ -121,13 +114,11 @@ function rebuild_model_general(
     if length(c3) > 0
         c3 = _remap_cons(c3, bin_to_org, var_lb)
         if c3_final
-            for i in 1:length(c3)
-                @constraint(
-                    model_rebuild,
-                    sum(c3[j][i] * x[i] for i in findnz(c3[j])[1]) <= 1 + sum(min.(findnz(c3[j])[2], 0)),
-                    base_name = "user_lazy_con3_"*string(i)
-                )
-            end
+            @constraint(
+                model_rebuild,
+                user_lazy_con3[j in 1:length(c3)],
+                sum(c3[j][i] * x[i] for i in findnz(c3[j])[1]) <= 1 + sum(min.(findnz(c3[j])[2], 0))
+            )
         else
             @constraint(
               model_rebuild,
@@ -141,8 +132,8 @@ function rebuild_model_general(
         c4 = _remap_cons(c4, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            sum(c4[j][i] * x[i] for i in findnz(c4[j])[1]) <= 1 + sum(min.(findnz(c4[j])[2], 0)),
-            base_name = "user_lazy_con4_"*string(i)
+            user_lazy_con4[j in 1:length(c4)],
+            sum(c4[j][i] * x[i] for i in findnz(c4[j])[1]) <= 1 + sum(min.(findnz(c4[j])[2], 0))
         )
        
     end
@@ -151,8 +142,8 @@ function rebuild_model_general(
         c12 = _remap_cons(c12, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            sum(c12[j][i] * x[i] for i in findnz(c12[j])[1]) <= 1 + sum(min.(findnz(c12[j])[2], 0)),
-            base_name = "user_lazy_con12_"*string(i)
+            user_lazy_con12[j in 1:length(c12)],
+            sum(c12[j][i] * x[i] for i in findnz(c12[j])[1]) <= 1 + sum(min.(findnz(c12[j])[2], 0))
         )
        
     end
@@ -161,8 +152,8 @@ function rebuild_model_general(
         c22 = _remap_cons(c22, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            sum(c22[j][i] * x[i] for i in findnz(c22[j])[1]) <= 1 + sum(min.(findnz(c22[j])[2], 0)),
-            base_name = "user_lazy_con22_"*string(i)
+            user_lazy_con22[j in 1:length(c22)],
+            sum(c22[j][i] * x[i] for i in findnz(c22[j])[1]) <= 1 + sum(min.(findnz(c22[j])[2], 0))
         )
        
     end
@@ -171,8 +162,8 @@ function rebuild_model_general(
         c32 = _remap_cons(c32, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            sum(c32[j][i] * x[i] for i in findnz(c32[j])[1]) <= 1 + sum(min.(findnz(c32[j])[2], 0)),
-            base_name = "user_lazy_con32_"*string(i)
+            user_lazy_con32[j in 1:length(c32)],
+            sum(c32[j][i] * x[i] for i in findnz(c32[j])[1]) <= 1 + sum(min.(findnz(c32[j])[2], 0))
         )
     end
     
@@ -180,8 +171,8 @@ function rebuild_model_general(
         c42 = _remap_cons(c42, bin_to_org, var_lb)
         @constraint(
             model_rebuild,
-            sum(c42[j][i] * x[i] for i in findnz(c42[j])[1]) <= 1 + sum(min.(findnz(c42[j])[2], 0)),
-            base_name = "user_lazy_con42_"*string(i)
+            user_lazy_con42[j in 1:length(c42)],
+            sum(c42[j][i] * x[i] for i in findnz(c42[j])[1]) <= 1 + sum(min.(findnz(c42[j])[2], 0))
         )
     end
     
