@@ -30,7 +30,7 @@ function model_mps(filename::String, numthreads::Int64, max_tolerance::Float64, 
             set_pack,
             is_min, bin_to_org
          );
-        write_to_file(model_rebuild, filename[9:end-4]*".mps")
+        write_to_file(model_rebuild, filename[9:end-4]*"_reduced.mps")
         return "Completed"
     end
     
