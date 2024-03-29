@@ -39,7 +39,7 @@ This script will build the reduced model by JuMP based on information provided b
 
 ## model_runtimes.jl
 
-This script will read the mode from the .mps file (by scripts from [info_prepare](/src/info_prepare)), conduct the clique merging method (by scripts from [clq_merge](/src/clq_merge)), rebuild the reduced model (by [rebuild_model.jl](/src/rebuild_model.jl)), and solve both the original model and the reduced model by Gurobi 10.0.1.
+This script will read the mode from the .mps file (by scripts from [info_prepare](/src/info_prepare)), conduct the clique merging method (by scripts from [clq_merge](/src/clq_merge)), rebuild the reduced model (by [rebuild_model.jl](/src/rebuild_model.jl)), and solve the reduced model by Gurobi 10.0.1.
 ```julia
 julia> include("model_runtimes.jl")
 julia> model_runtimes("30n20b8.mps", nthreads(), 0.00001, 3000, 1_000_000, 100_000)   #"30n20b8.mps" is the file name of the model.
