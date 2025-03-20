@@ -16,7 +16,7 @@ function detect_cliques(knapsack_set::Vector{Tuple{Any, Any, Any}}, time_limit::
         local C = _unique_cliques_find(knapsack_set[j][1], knapsack_set[j][2], knapsack_set[j][3])
         if C != false
             push!(main_cliques, C[1])
-            (length(C) > 1) && (append!!(clique_set, C[2:end]))
+            (length(C) > 1) && (push!(clique_set, C))
         end
     end
     return main_cliques, clique_set
@@ -49,7 +49,7 @@ function detect_cliques_parallel(knapsack_set::Vector{Tuple{Any, Any, Any}}, num
                 local C = _unique_cliques_find(knapsack_set[j][1], knapsack_set[j][2], knapsack_set[j][3])
                 if C != false
                     push!(main_cliques, C[1])
-                    (length(C) > 1) && (append!!(clique_set, C[2:end]))
+                    (length(C) > 1) && (push!(clique_set, C))
                 end
             end
             lock(spl)
