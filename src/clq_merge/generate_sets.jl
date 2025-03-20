@@ -39,8 +39,6 @@ function generate_sets(
         Here we do not extend clqs from clique_set, because the size is ususally too large and similar to c2 and c22. But you can do that with following commented code
         c4, c42 = clique_extension(clique_set, cg, numthreads, clq_ext_length_limit, clq_ext_term_limit)
     """
-    c4 = clique_set;
-    c42 = Vector{Int64}[];
 
     """
         Now combing cliques from different sets (from parallel computing)
@@ -67,7 +65,7 @@ function generate_sets(
         iter = length(c42)
         c_temp = Vector{Int64}[]
         for i in 1:iter
-            (length(c42[i]) > 0) && (append!!(c_temp, c32[i]))
+            (length(c42[i]) > 0) && (append!!(c_temp, c42[i]))
         end
         c42 = copy(c_temp)
     """
