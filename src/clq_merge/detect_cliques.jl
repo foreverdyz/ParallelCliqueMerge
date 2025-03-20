@@ -86,12 +86,14 @@ function _unique_cliques_find(a_index::Vector{Int64}, a_val::AbstractVector, b::
     (pos > 1) ? (index = pos - 1) : (return [C])
     #find additional maximum cliques
     C_full = [C]
+    pos_cache = pos
     pos += 1
     while index > 0
         (pos > length(a_index)) && (return C_full)
         if a_val[a_sort[pos]] + a_val[a_sort[index]] > b + 0.0001
-            c = a_index[a_sort[pos:end]]
-            push!(c, a_index[a_sort[index]])
+            #c = a_index[a_sort[pos:end]]
+            c = [a_index[a_sort[index]]]
+            push!(c, pos - pos_cache)
             push!(C_full, c)
             index -= 1
         else
