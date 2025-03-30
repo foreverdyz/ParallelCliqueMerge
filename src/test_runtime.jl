@@ -10,7 +10,7 @@ path3 = "presolved_instances/";
 mkpath("logfile")
 
 
-function(filename, threadnum, random_seed, solver_thread)
+function test_runtime(filename, threadnum, random_seed, solver_thread)
     
     #for orginal model
     model_0 = read_from_file(filename);
