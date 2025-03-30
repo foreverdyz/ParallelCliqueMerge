@@ -54,7 +54,7 @@ function presolve_other_solvers(filename, threadnum)
         obj_coef, c1, c2, c3, c4, c12, c22, c32, c42, 
         is_min, bin_to_org, filename, nnz, c2_nnz, c3_nnz, c4_nnz
     );
-    mkpath("presolved_data_other_solvers")
-    write_to_file(model, "presolved_data_other_solvers/"*string(threadnum)*"/"*filename);
+    mkpath("presolved_instances_other_solvers")
+    write_to_file(model, "presolved_instances_other_solvers/"*string(threadnum)*"/"*filename);
     return filename, round(t.time - t.gctime, digits = 4), nnz, setpack_nnz, c1_nnz, c2_nnz, c3_nnz, c4_nnz, c12_nnz, c22_nnz, c32_nnz, c42_nnz
 end
