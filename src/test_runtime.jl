@@ -4,52 +4,30 @@ using Gurobi
 using JuMP
 using DelimitedFiles
 
-include("prepresolves/generate_info.jl");
-include("generate_cliques/generate_sets.jl");
-include("build_model/rebuild_model.jl");
+include("presolve.jl")
 
 path1 = "res/runtime_1_99";
 path2 = "res/nodecount";
-path3 = "presolved_data_12/";
+path3 = "presolved_instances/";
 
-threadnum = parse(Int64, ARGS[1]);
-random_seed = parse(Float64, ARGS[2]);
-st_term = parse(Int64, ARGS[3]);
-en_term = parse(Int64, ARGS[4]);
-memory_usage = 16;
-memory_limit = 14;
-thread_num = 12;
+mkpath("res")
+mkpath("res/logfile")
 
-path1 = "res/runtime_1_99";
-path2 = "res/nodecount";
-path3 = "presolved_data_"*string(threadnum)*"/";
 
-list = open("first_round.txt") do f
-    readlines(f)
-end;
-
-#tol_nnz in col3, c2,c3,c4 in col6-8
-presolve_info = readdlm("presolve_res_"*string(threadnum)*".csv", ',');
-
-A = [];
-B = [];
-for iter in st_term : en_term
-    t0, t1, t2, t3, t4, t5 = 0, 0, 0, 0, 0, 0;
-    n0, n1, n2, n3, n4, n5 = 0, 0, 0, 0, 0, 0;
-    filename = list[iter];
+function(filename, threadnum, random_seed, solver_thread)
     
     #for orginal model
-    model_0 = read_from_file("mipdata/"*filename);
+    model_0 = read_from_file(filename);
     set_optimizer(model_0, Gurobi.Optimizer);
     set_time_limit_sec(model_0, 3600.0);
     set_optimizer_attribute(model_0, "LogFile", "res/logfile/"*filename[1:end-4]*"_0log.txt");
-    set_optimizer_attribute(model_0, "Threads", thread_num);
+    set_optimizer_attribute(model_0, "Threads", solver_thread);
     set_optimizer_attribute(model_0, "Seed", random_seed);
     optimize!(model_0);
     t0, n0 = solve_time(model_0), node_count(model_0);
-    #model_0 = nothing;
     GC.gc();
     
+    _, pre_time, tol, _, c1, c2, c3, c4, _, _, _, _ = presolve(filename, threadnum)
     #judge user cuts
     alpha = 1
     tol, c2, c3, c4 = presolve_info[iter, [3, 6, 7, 8]];
@@ -84,8 +62,7 @@ for iter in st_term : en_term
     set_time_limit_sec(model_1, 3600.0);
     set_optimizer_attribute(model_1, "LogFile", "res/logfile/"*filename[1:end-4]*"_1log.txt");
     set_optimizer_attribute(model_1, "Seed", random_seed);
-    set_attribute(model_1, "MemLimit", memory_limit);
-    set_optimizer_attribute(model_1, "Threads", thread_num);
+    set_optimizer_attribute(model_1, "Threads", solver_thread);
     optimize!(model_1);
     t1, n1 = solve_time(model_1), node_count(model_1);
     #GC.gc();
@@ -113,8 +90,7 @@ for iter in st_term : en_term
     set_optimizer(model_2, Gurobi.Optimizer);
     set_time_limit_sec(model_2, 3600.0);
     set_optimizer_attribute(model_2, "LogFile", "res/logfile/"*filename[1:end-4]*"_2log.txt");
-    set_attribute(model_2, "MemLimit", memory_limit);
-    set_optimizer_attribute(model_2, "Threads", thread_num);
+    set_optimizer_attribute(model_2, "Threads", solver_thread);
     set_optimizer_attribute(model_2, "Seed", random_seed);
     optimize!(model_2);
     t1, n1 = solve_time(model_2), node_count(model_2);
@@ -143,8 +119,7 @@ for iter in st_term : en_term
     set_optimizer(model_3, Gurobi.Optimizer);
     set_time_limit_sec(model_3, 3600.0);
     set_optimizer_attribute(model_3, "LogFile", "res/logfile/"*filename[1:end-4]*"_3log.txt");
-    set_attribute(model_3, "MemLimit", memory_limit);
-    set_optimizer_attribute(model_3, "Threads", thread_num);
+    set_optimizer_attribute(model_3, "Threads", solver_thread);
     set_optimizer_attribute(model_3, "Seed", random_seed);
     optimize!(model_3);
     t1, n1 = solve_time(model_3), node_count(model_3);
@@ -168,8 +143,7 @@ for iter in st_term : en_term
     set_optimizer(model_4, Gurobi.Optimizer);
     set_time_limit_sec(model_4, 3600.0);
     set_optimizer_attribute(model_4, "LogFile", "res/logfile/"*filename[1:end-4]*"_4log.txt");
-    set_attribute(model_4, "MemLimit", memory_limit);
-    set_optimizer_attribute(model_4, "Threads", thread_num);
+    set_optimizer_attribute(model_4, "Threads", solver_thread);
     set_optimizer_attribute(model_4, "Seed", random_seed);
     optimize!(model_4);
     t1, n1 = solve_time(model_4), node_count(model_4);
@@ -195,22 +169,11 @@ for iter in st_term : en_term
     set_optimizer(model_5, Gurobi.Optimizer);
     set_time_limit_sec(model_5, 3600.0);
     set_optimizer_attribute(model_5, "LogFile", "res/logfile/"*filename[1:end-4]*"_5log.txt");
-    set_attribute(model_5, "MemLimit", memory_limit);
-    set_optimizer_attribute(model_5, "Threads", thread_num);
+    set_optimizer_attribute(model_5, "Threads", solver_thread);
     set_optimizer_attribute(model_5, "Seed", random_seed);
     optimize!(model_5);
     t1, n1 = solve_time(model_5), node_count(model_5);
     #GC.gc();
     end  
-
-    push!(A, (filename[1:end-4], t0, t1, t2, t3, t4, t5));
-    push!(B, (filename[1:end-4], n0, n1, n2, n3, n4, n5));    
-    open(path1*string(threadnum)*".csv", "a") do file
-        # Write the data
-        writedlm(file, [[filename[1:end-4], t0, t1, t2, t3, t4, t5]], ',')
-    end
-    println((filename[1:end-4], t0, t1, t2, t3, t4, t5));
+    return filename, t0, n0, t1, n1
 end
-
-#writedlm(path1*string(threadnum)*".csv", A, ',');
-#writedlm(path2*string(threadnum)*".csv", B, ',');
