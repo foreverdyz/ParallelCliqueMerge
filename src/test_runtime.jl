@@ -175,5 +175,5 @@ function(filename, threadnum, random_seed, solver_thread)
     t1, n1 = solve_time(model_5), node_count(model_5);
     #GC.gc();
     end  
-    return filename, t0, n0, t1, n1
+    return filename, t0, n0, t1, n1, pre_time
 end
