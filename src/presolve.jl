@@ -6,7 +6,7 @@ include("build_model/rebuild_model.jl");
 
 using DelimitedFiles
 
-function presolve(filename)
+function presolve(filename, threadnum)
 	con_matrix, con_set, con_coef, con_ub, con_lb, 
 	var_ub, var_lb, var_type, set_pack, set_pack_new, knapsack_set, 
 	org_to_bin, bin_to_org, obj_coef, obj_constant, is_min, 
@@ -55,6 +55,7 @@ function presolve(filename)
         obj_coef, c1, c2, c3, c4, c12, c22, c32, c42, c1_nnz, c4_nnz, 
         is_min, bin_to_org, filename
     );
-    write_to_file(model, "presolved_data_"*string(threadnum)*"/"*filename);
+    mkpath("presolved_instances");
+    write_to_file(model, "presolved_instances/"filename);
     return filename, round(t.time - t.gctime, digits = 4), nnz, setpack_nnz, c1_nnz, c2_nnz, c3_nnz, c4_nnz, c12_nnz, c22_nnz, c32_nnz, c42_nnz
 end
