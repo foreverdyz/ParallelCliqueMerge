@@ -1,12 +1,10 @@
-We split our modified code into two parts: presolving and gurobi solving.
+The code includes three main functions
 
 # Presolving:
-Run:
-~$free -g
-to check whether have enough memory. Idealy have more than 14 GB in Mem.
-Run:
-~$nohup bash presolve.sh
-it will generate presolved models based on thread numbers 1, 2, 4, 8, 16, and 12; and presolved models are saved in the folder presolved\_data\_1 (or other thread numbers) while presolving runtime results are saved in csv file presolve\_runtime\_1.csv (or other thredad numbers).
+```julia
+> include("presolve.jl")
+> presolve(filename)
+``` 
 
 # Gurobi Solving
 Run:
