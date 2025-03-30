@@ -6,12 +6,8 @@ using DelimitedFiles
 
 include("presolve.jl")
 
-path1 = "res/runtime_1_99";
-path2 = "res/nodecount";
 path3 = "presolved_instances/";
-
-mkpath("res")
-mkpath("res/logfile")
+mkpath("logfile")
 
 
 function(filename, threadnum, random_seed, solver_thread)
@@ -20,7 +16,7 @@ function(filename, threadnum, random_seed, solver_thread)
     model_0 = read_from_file(filename);
     set_optimizer(model_0, Gurobi.Optimizer);
     set_time_limit_sec(model_0, 3600.0);
-    set_optimizer_attribute(model_0, "LogFile", "res/logfile/"*filename[1:end-4]*"_0log.txt");
+    set_optimizer_attribute(model_0, "LogFile", "logfile/"*filename[1:end-4]*"_0log.txt");
     set_optimizer_attribute(model_0, "Threads", solver_thread);
     set_optimizer_attribute(model_0, "Seed", random_seed);
     optimize!(model_0);
@@ -60,7 +56,7 @@ function(filename, threadnum, random_seed, solver_thread)
     end
     set_optimizer(model_1, Gurobi.Optimizer);
     set_time_limit_sec(model_1, 3600.0);
-    set_optimizer_attribute(model_1, "LogFile", "res/logfile/"*filename[1:end-4]*"_1log.txt");
+    set_optimizer_attribute(model_1, "LogFile", "logfile/"*filename[1:end-4]*"_1log.txt");
     set_optimizer_attribute(model_1, "Seed", random_seed);
     set_optimizer_attribute(model_1, "Threads", solver_thread);
     optimize!(model_1);
@@ -89,7 +85,7 @@ function(filename, threadnum, random_seed, solver_thread)
     end
     set_optimizer(model_2, Gurobi.Optimizer);
     set_time_limit_sec(model_2, 3600.0);
-    set_optimizer_attribute(model_2, "LogFile", "res/logfile/"*filename[1:end-4]*"_2log.txt");
+    set_optimizer_attribute(model_2, "LogFile", "logfile/"*filename[1:end-4]*"_2log.txt");
     set_optimizer_attribute(model_2, "Threads", solver_thread);
     set_optimizer_attribute(model_2, "Seed", random_seed);
     optimize!(model_2);
@@ -118,7 +114,7 @@ function(filename, threadnum, random_seed, solver_thread)
     end
     set_optimizer(model_3, Gurobi.Optimizer);
     set_time_limit_sec(model_3, 3600.0);
-    set_optimizer_attribute(model_3, "LogFile", "res/logfile/"*filename[1:end-4]*"_3log.txt");
+    set_optimizer_attribute(model_3, "LogFile", "logfile/"*filename[1:end-4]*"_3log.txt");
     set_optimizer_attribute(model_3, "Threads", solver_thread);
     set_optimizer_attribute(model_3, "Seed", random_seed);
     optimize!(model_3);
@@ -142,7 +138,7 @@ function(filename, threadnum, random_seed, solver_thread)
     end
     set_optimizer(model_4, Gurobi.Optimizer);
     set_time_limit_sec(model_4, 3600.0);
-    set_optimizer_attribute(model_4, "LogFile", "res/logfile/"*filename[1:end-4]*"_4log.txt");
+    set_optimizer_attribute(model_4, "LogFile", "logfile/"*filename[1:end-4]*"_4log.txt");
     set_optimizer_attribute(model_4, "Threads", solver_thread);
     set_optimizer_attribute(model_4, "Seed", random_seed);
     optimize!(model_4);
@@ -168,7 +164,7 @@ function(filename, threadnum, random_seed, solver_thread)
     end
     set_optimizer(model_5, Gurobi.Optimizer);
     set_time_limit_sec(model_5, 3600.0);
-    set_optimizer_attribute(model_5, "LogFile", "res/logfile/"*filename[1:end-4]*"_5log.txt");
+    set_optimizer_attribute(model_5, "LogFile", "logfile/"*filename[1:end-4]*"_5log.txt");
     set_optimizer_attribute(model_5, "Threads", solver_thread);
     set_optimizer_attribute(model_5, "Seed", random_seed);
     optimize!(model_5);
