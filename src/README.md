@@ -12,7 +12,7 @@ and the reduced model will be saved to the presolved_instances folder.
 Use the following code to compare the Gurobi solver runtimes between the original and reduced models. threadnum is the number of threads to resolve,
 random_seed is the random seed for the solver, and solver_thread is the number of threads for Gurobi.
 ```julia
-> include(".jl")
+> include("presolve.jl")
 > filename, org_time, org_node, reduced_time, reduced_node, presolve_time = test_runtime(filename, threadnum, random_seed, solver_thread)
 ```
 and the logfile will be saved to the logfile folder.
