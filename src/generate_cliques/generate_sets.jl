@@ -13,7 +13,7 @@ function generate_sets(
         knapsack_size::Int64, clique_size::Int64, process_limit_cg::Int64,  time_limit_cg::Real, 
         process_limit_extend::Int64, time_limit_extend::Real
     )
-    Random.seed!(12)
+    Random.seed!(1234)
     main_cliques, clique_set = detect_cliques(knapsack_set, numthreads, knapsack_size);
     cg, cg_trans = cg_construct(
         set_pack, set_pack_new, main_cliques, clique_set, org_to_bin,
